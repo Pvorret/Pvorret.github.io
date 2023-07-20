@@ -1,0 +1,29 @@
+<ng-container
+  [ngTemplateOutlet]="questions"
+  [ngTemplateOutletContext]="{ value: quiz === undefined ? answer : quiz }"
+>
+</ng-container>
+
+<ng-template #questions let-value="value">
+  <div class="row mt-2 justify-content-md-center">
+    <div class="col-auto">
+      <div [innerHtml]="value.question | safeHtml"></div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-auto">
+        <div class="row justify-content-md-center">
+          <ng-container *ngFor="let answer of allAnswers">
+            <div class="col-auto">
+              <button
+                type="button"
+                [appAnswerHighlight]="getBtnClass(answer)"
+                (click)="onAnswerClick(answer)"
+                [innerHtml]="answer | safeHtml"
+              ></button>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

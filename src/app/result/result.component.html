@@ -1,0 +1,30 @@
+<h1 class="text-center">Results</h1>
+
+<br />
+
+<div class="row">
+  <div class="col-auto">
+    <ng-container *ngFor="let answer of selectedAnswers">
+      <app-question [answer]="answer"></app-question>
+    </ng-container>
+  </div>
+</div>
+
+<br />
+
+<p class="text-center" [appResultHighlight]="highlightStyle">
+  You scored {{ scored }} out of 5
+</p>
+
+<br />
+
+<div class="row">
+  <button
+    type="button"
+    class="btn btn-secondary W-100"
+    id="newQuizBtn"
+    [routerLink]="''"
+  >
+    Create a new Quiz
+  </button>
+</div>

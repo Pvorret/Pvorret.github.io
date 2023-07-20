@@ -1,0 +1,54 @@
+<h1 class="text-center">Quiz Maker</h1>
+
+<div class="row mt-2">
+  <div class="col-5">
+    <app-category (categorySelect)="onCategorySelect($event)"></app-category>
+  </div>
+  <div class="col-5">
+    <app-difficulty
+      (difficultySelect)="onDifficultySelect($event)"
+    ></app-difficulty>
+  </div>
+  <div class="col-2">
+    <button
+      type="button"
+      class="btn btn-primary"
+      id="createBtn"
+      (click)="onCreate()"
+    >
+      Create
+    </button>
+  </div>
+</div>
+
+<br />
+
+<div class="row">
+  <div class="col-auto">
+    <ng-container *ngFor="let quiz of quizList">
+      <app-question
+        [quiz]="quiz"
+        (answerSelected)="onAnswerSelected($event)"
+      ></app-question>
+    </ng-container>
+  </div>
+</div>
+
+<br />
+
+<div
+  class="row"
+  *ngIf="
+    selectedAnswers.length > 0 && quizList.length === selectedAnswers.length
+  "
+>
+  <button
+    type="button"
+    class="btn btn-primary W-100"
+    id="submitBtn"
+    [routerLink]="'result'"
+    [state]="{ data: selectedAnswers }"
+  >
+    Submit
+  </button>
+</div>
