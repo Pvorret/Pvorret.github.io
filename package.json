@@ -1,0 +1,50 @@
+{
+  "name": "angular-level-2-quiz-maker",
+  "version": "1.0.0",
+  "author": "Phillip Vorret",
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "16.1.6",
+    "@angular/common": "16.1.6",
+    "@angular/compiler": "16.1.6",
+    "@angular/core": "16.1.6",
+    "@angular/forms": "16.1.6",
+    "@angular/platform-browser": "16.1.6",
+    "@angular/platform-browser-dynamic": "16.1.6",
+    "@angular/router": "16.1.6",
+    "@ng-select/ng-select": "11.0.0",
+    "@popperjs/core": "2.11.8",
+    "@types/jasmine": "4.3.5",
+    "bootstrap": "5.3.0",
+    "rxjs": "7.8.1",
+    "tslib": "2.6.0",
+    "zone.js": "0.13.1"
+  },
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "16.1.4",
+    "@angular/cli": "16.1.4",
+    "@angular/compiler-cli": "16.1.6",
+    "@types/jasmine": "3.6.0",
+    "@types/node": "16.6.2",
+    "codelyzer": "6.0.2",
+    "jasmine-core": "3.6.0",
+    "jasmine-spec-reporter": "5.0.0",
+    "karma": "6.4.2",
+    "karma-chrome-launcher": "3.1.0",
+    "karma-coverage": "2.0.3",
+    "karma-jasmine": "4.0.0",
+    "karma-jasmine-html-reporter": "1.5.0",
+    "protractor": "7.0.0",
+    "ts-node": "8.3.0",
+    "tslint": "6.1.0",
+    "typescript": "5.1.6"
+  }
+}
