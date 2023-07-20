@@ -1,6 +1,7 @@
 /* Add application styles & imports to this file! */
 @import '~@ng-select/ng-select/themes/default.theme.css';
 
-.btn {
-  border-radius: 2.5%;
-}
+/*.btn {*/
+/*  margin-top: 5px;*/
+/*  margin-bottom: 5px;*/
+/*}*/

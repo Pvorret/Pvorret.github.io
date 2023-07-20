@@ -5,11 +5,11 @@ import { HighlightStyle } from './highlight-style.enum';
   selector: '[appResultHighlight]',
 })
 export class ResultHighlightDirective implements OnChanges {
-  @Input() appResultHighlight: HighlightStyle = HighlightStyle.RED;
+  @Input() public appResultHighlight: HighlightStyle = HighlightStyle.RED;
 
-  constructor(private element: ElementRef) {}
+  public constructor(private element: ElementRef) {}
 
-  ngOnChanges(): void {
+  public ngOnChanges(): void {
     this.element.nativeElement.style.backgroundColor = this.appResultHighlight;
   }
 }

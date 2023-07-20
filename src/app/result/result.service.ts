@@ -6,7 +6,7 @@ import { HighlightStyle } from './highlight-style.enum';
   providedIn: 'root',
 })
 export class ResultService {
-  getScore(selectedAnswers: Answer[]): number {
+  public getScore(selectedAnswers: Answer[]): number {
     let tmpScore: number = 0;
 
     for (const answer of selectedAnswers) {
@@ -19,7 +19,7 @@ export class ResultService {
     return tmpScore;
   }
 
-  getHightStyle(score: number): HighlightStyle {
+  public getHightStyle(score: number): HighlightStyle {
     if (score >= 4) {
       return HighlightStyle.GREEN;
     } else if (score < 4 && score >= 2) {

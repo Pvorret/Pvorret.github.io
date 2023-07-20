@@ -7,15 +7,15 @@ import { Difficulty } from '../../shared/difficulty';
   styleUrls: ['./difficulty.component.css'],
 })
 export class DifficultyComponent {
-  @Output() difficultySelect: EventEmitter<Difficulty> =
+  @Output() public difficultySelect: EventEmitter<Difficulty> =
     new EventEmitter<Difficulty>();
-  difficulties: Difficulty[] = [
+  public difficulties: Difficulty[] = [
     { id: 1, value: 'Easy' },
     { id: 2, value: 'Medium' },
     { id: 3, value: 'Hard' },
   ];
 
-  onDifficultyChange(selectedDifficulty: Difficulty): void {
+  public onDifficultyChange(selectedDifficulty: Difficulty): void {
     this.difficultySelect.emit(selectedDifficulty);
   }
 }

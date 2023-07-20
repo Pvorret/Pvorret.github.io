@@ -5,7 +5,7 @@ import { AnswerClass } from './answer-class.enum';
   providedIn: 'root',
 })
 export class AnswerService {
-  getAnswerColor(
+  public getAnswerColor(
     answer: string,
     selectedAnswer: string,
     correctAnswer: string

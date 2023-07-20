@@ -22,12 +22,6 @@
               "aot": true,
               "buildOptimizer": true,
               "extractLicenses": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
               "namedChunks": false,
               "optimization": true,
               "outputHashing": "all",
@@ -39,7 +33,7 @@
             "assets": [],
             "index": "src/index.html",
             "main": "src/main.ts",
-            "outputPath": "dist/quiz-maker",
+            "outputPath": "docs",
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ],

@@ -9,13 +9,13 @@ import { ResultService } from './result.service';
   styleUrls: ['./result.component.css'],
 })
 export class ResultComponent implements OnInit {
-  selectedAnswers: Answer[] = [];
-  highlightStyle: HighlightStyle = HighlightStyle.RED;
-  scored: number = 0;
+  public selectedAnswers: Answer[] = [];
+  public highlightStyle: HighlightStyle = HighlightStyle.RED;
+  public scored: number = 0;
 
-  constructor(private readonly resultService: ResultService) {}
+  public constructor(private readonly resultService: ResultService) {}
 
-  ngOnInit() {
+  public ngOnInit() {
     this.selectedAnswers = history.state.data as Answer[];
     this.scored = this.resultService.getScore(this.selectedAnswers);
     this.highlightStyle = this.resultService.getHightStyle(this.scored);

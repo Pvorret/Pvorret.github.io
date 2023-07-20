@@ -7,7 +7,7 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { Answer } from '../shared/answer';
-import { Quiz } from '../shared/quiz';
+import { Quiz } from '../shared/quiz/quiz';
 import { AnswerClass } from './answer-class.enum';
 import { AnswerService } from './answer.service';
 
@@ -17,16 +17,16 @@ import { AnswerService } from './answer.service';
   styleUrls: ['./question.component.css'],
 })
 export class QuestionComponent implements OnChanges {
-  @Input() quiz: Quiz | undefined;
-  @Input() answer: Answer | undefined;
-  @Output() answerSelected: EventEmitter<Answer> = new EventEmitter<Answer>();
-  selectedAnswer: string = '';
-  allAnswers: string[] = [];
+  @Input() public quiz: Quiz | undefined;
+  @Input() public answer: Answer | undefined;
+  @Output() public answerSelected: EventEmitter<Answer> = new EventEmitter<Answer>();
+  public selectedAnswer: string = '';
+  public allAnswers: string[] = [];
   private correctAnswer: string = '';
 
-  constructor(private readonly answerService: AnswerService) {}
+  public constructor(private readonly answerService: AnswerService) {}
 
-  ngOnChanges(change: SimpleChanges): void {
+  public ngOnChanges(change: SimpleChanges): void {
     this.allAnswers = [];
 
     if (change['quiz']?.currentValue) {
@@ -44,7 +44,7 @@ export class QuestionComponent implements OnChanges {
     }
   }
 
-  getBtnClass(answer: string): AnswerClass {
+  public getBtnClass(answer: string): AnswerClass {
     return this.answerService.getAnswerColor(
       answer,
       this.selectedAnswer,
@@ -52,7 +52,7 @@ export class QuestionComponent implements OnChanges {
     );
   }
 
-  onAnswerClick(selectedAnswer: string): void {
+  public onAnswerClick(selectedAnswer: string): void {
     if (this.quiz) {
       this.selectedAnswer = selectedAnswer;
 

@@ -16,7 +16,8 @@
             <div class="col-auto">
               <button
                 type="button"
-                [appAnswerHighlight]="getBtnClass(answer)"
+                class="mt-2 mb-2"
+                [ngClass]="getBtnClass(answer)"
                 (click)="onAnswerClick(answer)"
                 [innerHtml]="answer | safeHtml"
               ></button>

@@ -1,8 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { Category } from './category';
-import { Quiz } from './quiz';
+import { Category } from './category/category';
+import { Quiz } from './quiz/quiz';
+import { QuizDTO } from './quiz/quiz-dto';
+import { CategoryDTO } from './category/category-dto';
 
 @Injectable({
   providedIn: 'root',
@@ -10,7 +12,7 @@ import { Quiz } from './quiz';
 export class OpenTriviaEndpointsService {
   constructor(private readonly httpClient: HttpClient) {}
 
-  getCategories(): Observable<Category[]> {
+  public getCategories(): Observable<Category[]> {
     const url: string = 'https://opentdb.com/api_category.php';
 
     return this.httpClient
@@ -20,7 +22,7 @@ export class OpenTriviaEndpointsService {
       );
   }
 
-  getQuiz(
+  public getQuiz(
     selectCategory: number,
     selectedDifficulty: string
   ): Observable<Quiz[]> {
@@ -30,13 +32,4 @@ export class OpenTriviaEndpointsService {
       .get<QuizDTO>(url)
       .pipe(map((httpQuiz: QuizDTO) => httpQuiz.results));
   }
-}
-
-interface CategoryDTO {
-  trivia_categories: Category[];
-}
-
-interface QuizDTO {
-  response_code: number;
-  results: Quiz[];
 }

@@ -1,10 +1,10 @@
 import { Component, OnDestroy } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { Answer } from '../shared/answer';
-import { Category } from '../shared/category';
+import { Category } from '../shared/category/category';
 import { Difficulty } from '../shared/difficulty';
 import { OpenTriviaEndpointsService } from '../shared/open-trivia-endpoints.service';
-import { Quiz } from '../shared/quiz';
+import { Quiz } from '../shared/quiz/quiz';
 
 @Component({
   selector: 'app-quiz-maker',
@@ -12,30 +12,30 @@ import { Quiz } from '../shared/quiz';
   styleUrls: ['./quiz-maker.component.css'],
 })
 export class QuizMakerComponent implements OnDestroy {
-  quizList: Quiz[] = [];
-  selectedAnswers: Answer[] = [];
+  public quizList: Quiz[] = [];
+  public selectedAnswers: Answer[] = [];
   private selectedCategory: Category | undefined;
   private selectedDifficulty: Difficulty | undefined;
   private destroy: Subject<boolean> = new Subject<boolean>();
 
-  constructor(
+  public constructor(
     private readonly oTEndpointsService: OpenTriviaEndpointsService
   ) {}
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.destroy.next(true);
     this.destroy.complete();
   }
 
-  onCategorySelect(selectedCategory: Category): void {
+  public onCategorySelect(selectedCategory: Category): void {
     this.selectedCategory = selectedCategory;
   }
 
-  onDifficultySelect(selectedDifficulty: Difficulty): void {
+  public onDifficultySelect(selectedDifficulty: Difficulty): void {
     this.selectedDifficulty = selectedDifficulty;
   }
 
-  onCreate(): void {
+  public onCreate(): void {
     if (this.selectedCategory && this.selectedDifficulty) {
       this.oTEndpointsService
         .getQuiz(this.selectedCategory.id, this.selectedDifficulty.value)
@@ -47,7 +47,7 @@ export class QuizMakerComponent implements OnDestroy {
     }
   }
 
-  onAnswerSelected(selectedAnswer: Answer): void {
+  public onAnswerSelected(selectedAnswer: Answer): void {
     if (
       !this.selectedAnswers.some((a) => a.question === selectedAnswer.question)
     ) {

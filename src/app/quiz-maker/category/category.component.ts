@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import { OpenTriviaEndpointsService } from '../../shared/open-trivia-endpoints.service';
-import { Category } from '../../shared/category';
+import { Category } from '../../shared/category/category';
 
 @Component({
   selector: 'app-category',
@@ -15,16 +15,16 @@ import { Category } from '../../shared/category';
   styleUrls: ['./category.component.css'],
 })
 export class CategoryComponent implements OnInit, OnDestroy {
-  @Output() categorySelect: EventEmitter<Category> =
+  @Output() public categorySelect: EventEmitter<Category> =
     new EventEmitter<Category>();
-  categories: Category[] = [];
+  public categories: Category[] = [];
   private destroy: Subject<boolean> = new Subject<boolean>();
 
-  constructor(
+  public constructor(
     private readonly oTEndpointsService: OpenTriviaEndpointsService
   ) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.oTEndpointsService
       .getCategories()
       .pipe(takeUntil(this.destroy))
@@ -33,12 +33,12 @@ export class CategoryComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.destroy.next(true);
     this.destroy.complete();
   }
 
-  onCategoryChange(selectedCategory: Category): void {
+  public onCategoryChange(selectedCategory: Category): void {
     this.categorySelect.emit(selectedCategory);
   }
 }
