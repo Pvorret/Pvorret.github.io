@@ -1,6 +1,6 @@
 <h1 class="text-center">Quiz Maker</h1>
 
-<div class="row mt-2">
+<div class="row mt-2 justify-content-md-center">
   <div class="col-5">
     <app-category (categorySelect)="onCategorySelect($event)"></app-category>
   </div>
@@ -23,7 +23,7 @@
 
 <br />
 
-<div class="row">
+<div class="row justify-content-md-center">
   <div class="col-auto">
     <ng-container *ngFor="let quiz of quizList">
       <app-question
@@ -37,7 +37,7 @@
 <br />
 
 <div
-  class="row"
+  class="row justify-content-md-center"
   *ngIf="
     selectedAnswers.length > 0 && quizList.length === selectedAnswers.length
   "
@@ -46,8 +46,7 @@
     type="button"
     class="btn btn-primary W-100"
     id="submitBtn"
-    [routerLink]="'result'"
-    [state]="{ data: selectedAnswers }"
+    (click)="onSubmit()"
   >
     Submit
   </button>
